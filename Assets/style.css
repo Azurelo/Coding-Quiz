@@ -1,0 +1,39 @@
+body{
+    margin: 0px;
+    background-color: #ccc;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    font-size: larger;
+    padding: 10px;
+}
+header div{
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+section{
+    border-radius: 10%;
+    flex-direction: column;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: #aaa;
+    margin: auto;
+    margin-top: 3%;
+    width: 50%;
+}
+
+section div{
+    border-radius: 10%;
+    background-color: #888;
+    padding: 1% 5% 1% 5%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    
+}
