@@ -7,12 +7,12 @@
 - I learned how to better understand Javascript.
 
 ## Link
-https://azurelo.github.io/Password-Generator/
+https://azurelo.github.io/Coding-Quiz/
 
 ## Snapshots
 ![image](https://user-images.githubusercontent.com/114710827/203668918-2a6fa4bd-ceda-41e3-86d1-97c484186c20.png)
 
-This website can be used to create a new password based on criteria determined by the user.
+This website can be used to study and test knowledge of basic coding.
 
 ## License
 
