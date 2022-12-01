@@ -4,17 +4,18 @@ var startBtn = document.getElementById('start-btn');
 var questionTable = document.getElementById('questionTable');
 //var mainImage = document.getElementById
 // Timer that counts down from 75
-var timeLeft = 60;
 var questionElement = document.getElementById('question');
 var answerElement = document.getElementById('answerGrid')
 var currentQuestionIndex;
+var timeLeft;
 
 function begin() {
+  timeLeft = 0;
   //Display Questions and hide Start button
     questionTable.style.display = 'flex';
     startBtn.classList.add('hide');
     setTimer();
-    currentQuestionIndex = 0;
+    currentQuestionIndex = 0
     displayNext();
 }
 
@@ -24,7 +25,6 @@ function displayNext(){
 }
 
 function showQuestion(question){
-  questionElement.innerText = question.question
   question.answers.forEach(answer => {
     var button = document.createElement('button')
     button.innerText= answer.choice
@@ -38,13 +38,39 @@ function showQuestion(question){
 }
 
 function selectAnswer(e){
-  var selectedAnswer = e.target;
-  if(selectedAnswer.isCorrect === false){
+  var selectedAnswer = e.target
+  var correct = selectedAnswer.dataset.isCorrect
+setStatusClass(document.body, correct)
+Array.from(answerElement.children).forEach(button => {
+  setStatusClass(button, button.dataset.correct)
+})
+if(questions.length > currentQuestionIndex + 1){
+  currentQuestionIndex++
+  displayNext()
+}else{
+  startBtn.innerText = 'Restart'
+  startBtn.classList.remove('hide')
+}
+
+}
+
+function setStatusClass(element, correct){
+  clearStatusClass(element)
+  if(correct){
+    element.classList.add('correct')
+  }else{element.classList.add('wrong')}
+}
+
+function clearStatusClass(element){
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
+}
+/*   if(selectedAnswer.isCorrect === false){
     timeLeft -= 5;}
 
     //displayNext();
     else{console.log('oof');}
-  }
+  } */
 
 function resetQuestions(){
   while(answerElement.firstChild)
@@ -57,7 +83,6 @@ startBtn.addEventListener('click', begin);
 
 var questions = [
     {
-      question: 'Pick the odd one out!',
       answers: [
         {choice: 'JavaScript', isCorrect: false},
         {choice: 'HTML', isCorrect: false },
@@ -110,29 +135,24 @@ var questions = [
 
 function setTimer(){
 // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+timeLeft=10;
+
 
 var timeInterval = setInterval(function () {
   // As long as the `timeLeft` is greater than 1
-
-  if (timeLeft > 1) {
+  if (timeLeft > 0) {
     // Set the `textContent` of `timerEl` to show the remaining seconds
     timerEl.textContent = timeLeft;
     // Decrement `timeLeft` by 1
     timeLeft--;
-
-  } else if (timeLeft === 1) {
-    // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-    timerEl.textContent = timeLeft;
-    timeLeft--;
-
   } else {
     // Once `timeLeft` gets to 0, set `timerEl` to an empty string
     timerEl.textContent = '0';
     // Use `clearInterval()` to stop the timer
-
     clearInterval(timeInterval);
-
+    
   }
   
 }, 1000);
 }
+
