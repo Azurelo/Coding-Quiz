@@ -7,10 +7,10 @@
 - I learned how to better understand Javascript.
 
 ## Link
-https://azurelo.github.io/Coding-Quiz/
+https://azurelo.github.io/Coding-Quiz/ 
 
 ## Snapshots
-![image](https://user-images.githubusercontent.com/114710827/203668918-2a6fa4bd-ceda-41e3-86d1-97c484186c20.png)
+![Screenshot_20221202_022029](https://user-images.githubusercontent.com/114710827/205388192-b4bc4337-eecd-4b09-93e9-fb5edfc05d6d.png)
 
 This website can be used to study and test knowledge of basic coding.
 
